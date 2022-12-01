@@ -43,7 +43,12 @@ const loadPageData = () => {
 }
 
 const goBack = () => {
-  router.go(-1)
+  router.push({
+    name: 'Detail',
+    query: {
+      indexValue
+    }
+  })
 }
 
 const saveNameCheck = (tagName: string) => {

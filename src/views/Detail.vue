@@ -7,8 +7,9 @@ import { Col as VanCol, Row as VanRow, Sticky as VanSticky , Button as VanButton
 
 let entityList = <EntityResList>{}
 let fileName = 'cifu'
+let indexNum = 0
 let totalSize = ref(1)
-const indexValue = ref(0)
+const indexValue = ref(indexNum)
 let activeEntity = ref<Entity>({
   content: '',
   author: '',
@@ -23,6 +24,10 @@ const router = useRouter()
 onMounted(() => {
   console.log('加载页面数据')
   fileName = route.params?.fileName as string
+  indexNum = Number(route.params?.indexValue)
+  if (indexNum) {
+    indexValue.value = indexNum
+  }
   loadPageData(fileName)
 })
 
