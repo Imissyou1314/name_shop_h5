@@ -1,6 +1,6 @@
 <template>
   <div class="book-item-panel" @click="jumpDetailAction">
-    <img class="book-img" :src="itemImg" />
+    <img class="book-img" :src="bookImg" />
     <div class="info-panel">
       <p class="title">{{ props.book.title }}</p>
       <p>{{ props.book.desc }}</p>
@@ -9,9 +9,13 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { Book } from '#/store'
-import itemImg from '@/assets/images/shijing.jpg'
 import { useRouter } from 'vue-router'
+
+import shijingImg from '@/assets/images/shijing.jpg'
+import chuciImg from '@/assets/images/chuci.jpeg'
+
 
 const props = defineProps<{ book: Book }>()
 const router = useRouter()
@@ -25,6 +29,18 @@ const jumpDetailAction = () => {
   })
 }
 
+const bookImg = computed(() => {
+  switch (props.book.fileName) {
+    case 'shijing':
+      return shijingImg
+    case 'chuci':
+      return chuciImg
+    default:
+      return shijingImg
+  }
+})
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -35,8 +51,8 @@ const jumpDetailAction = () => {
     cursor: pointer;
 
     .book-img {
-      max-height: 80%;
-      max-width: 40vw;
+      height: 80%;
+      width: 40vw;
     }
   }
 </style>

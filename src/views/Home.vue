@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { getAllBook } from 'api/book'
 import BookItem from '@/components/BookItem.vue'
-import { Field, CellGroup } from 'vant'
+import { Field as VanField, CellGroup as VanCellGroup } from 'vant'
 import useBookStore  from '@/store/modules/book'
 
 const bookList = ref()
