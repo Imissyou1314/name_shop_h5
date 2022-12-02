@@ -46,7 +46,7 @@ const goBack = () => {
   router.push({
     name: 'Detail',
     query: {
-      indexValue
+      indexValue,
     }
   })
 }
@@ -59,7 +59,7 @@ const saveNameCheck = (tagName: string) => {
 </script>
 
 <template>
-  <div class="detail-wrapper">
+  <div class="name-wrapper">
     <van-nav-bar title="名阁" left-text="返回" left-arrow @click-left="goBack" />
     <div class="container">
       <van-tag class="tag-item" type="primary" size="large" v-for="(tag, index) in entityData.Keys" :key="index" @click="saveNameCheck(tag)">{{ bookStore.nameTag || '陈' }}{{ tag }}</van-tag>
@@ -68,11 +68,9 @@ const saveNameCheck = (tagName: string) => {
 </template>
 
 <style lang="scss" scoped>
-.detail-wrapper {
+.name-wrapper {
   height: 100%;
   width: 100%;
-  background-color: #fff;
-  color: #333;
 
   .container {
     display: flex;
@@ -81,7 +79,6 @@ const saveNameCheck = (tagName: string) => {
     align-items: center;
     width: 100%;
     height: auto;
-    background-color: #fff;
     flex-wrap: wrap;
 
     .tag-item {

@@ -22,9 +22,8 @@ const router = useRouter()
 
 // mounted
 onMounted(() => {
-  console.log('加载页面数据')
   fileName = route.params?.fileName as string
-  indexNum = Number(route.params?.indexValue)
+  indexNum = Number(route.query?.indexValue)
   if (indexNum) {
     indexValue.value = indexNum
   }
@@ -32,7 +31,6 @@ onMounted(() => {
 })
 
 const loadPageData = (fileName: string) => {
-  console.log('加载页面数据')
   getAllEntity(fileName).then(res => {
     if (res.code === 200) {
       entityList.list = res.data
@@ -49,7 +47,6 @@ const goBack = () => {
 }
 
 const jumpNameFact = () => {
-  console.log('fileName = %s ===>', fileName, indexValue.value)
   router.push({
     name: 'NameKeys',
     params: {
@@ -107,8 +104,6 @@ const refreshEntity = () => {
 .detail-wrapper {
   height: 100%;
   width: 100%;
-  background-color: #fff;
-  color: #333;
 
   .container {
     display: flex;
@@ -117,7 +112,6 @@ const refreshEntity = () => {
     align-items: center;
     width: 100%;
     height: auto;
-    background-color: #fff;
   }
 }
 
