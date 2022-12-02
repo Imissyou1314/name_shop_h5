@@ -1,6 +1,6 @@
 <template>
-  <div class="book-item-panel" @click="jumpDetailAction">
-    <img class="book-img" :src="bookImg" />
+  <div class="book-item-panel">
+    <img class="book-img" :src="bookImg" @click="jumpDetailAction"/>
     <div class="info-panel">
       <p class="title">{{ props.book.title }}</p>
       <p>{{ props.book.desc }}</p>
