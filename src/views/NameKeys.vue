@@ -54,6 +54,9 @@ const goBack = () => {
 const saveNameCheck = (tagName: string) => {
   const name = `${bookStore.nameTag}${tagName}`
   console.log('xxxxx ====>', name)
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(name)
+  }
 }
 
 </script>
