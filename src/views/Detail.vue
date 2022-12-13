@@ -56,6 +56,16 @@ const jumpNameFact = () => {
   })
 }
 
+const jumpWordsAction = () => {
+  router.push({
+    name: 'Words',
+    params: {
+      fileName: fileName,
+      indexValue: indexValue.value,
+    }
+  })
+}
+
 const preAction = () => {
   if (indexValue.value === 0) {
     return
@@ -91,6 +101,9 @@ const refreshEntity = () => {
       <van-row justify="center">
         <van-col :span="6">
           <van-button type="primary" :disabled="indexValue === 0" size="large" @click="preAction">前一篇文章</van-button>
+        </van-col>  
+        <van-col :span="4" :offset="2">
+          <van-button type="primary" :disabled="indexValue === 0" size="large" @click="jumpWordsAction">分解</van-button>
         </van-col>  
         <van-col :span="6" :offset="2">
           <van-button type="primary" :disabled="indexValue === totalSize - 1" size="large" @click="nextAction">后一篇文章</van-button>

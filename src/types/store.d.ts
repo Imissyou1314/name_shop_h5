@@ -24,3 +24,7 @@ entityList: EntityRes
 [x: string]: EntityRes
   list: EntityRes[]
 }
+
+export interface WordsRes {
+  words: string[]
+}
