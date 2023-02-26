@@ -8,11 +8,11 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ["./tsconfig.json"],
-    parser: '@babel/eslint-parser',
+    project: ['./tsconfig.json'],
+    parser: '@babel/eslint-parser'
   },
   plugins: ['vue'],
   rules: {
-    "@typescript-eslint/explicit-function-return-type": "off",
+    '@typescript-eslint/explicit-function-return-type': 'off'
   }
 }
