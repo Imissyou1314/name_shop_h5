@@ -5,7 +5,6 @@ import { setupRouter } from './router'
 import { setupStore } from './store'
 import { setupVant } from './plugins/vant'
 
-
 const bootstrap = () => {
   const app = createApp(App)
 

@@ -20,8 +20,8 @@ export interface EntityRes {
 }
 
 export interface EntityResList {
-entityList: EntityRes
-[x: string]: EntityRes
+  entityList: EntityRes
+  [x: string]: EntityRes
   list: EntityRes[]
 }
 

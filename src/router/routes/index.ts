@@ -59,4 +59,3 @@ const notFoundPage: RouteRecordRaw = {
 }
 
 export default [rootRoute, ...routes, notFoundPage]
-

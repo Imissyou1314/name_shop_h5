@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue'
 import { getEntityWords } from 'api/book'
 import { useRoute, useRouter } from 'vue-router'
 import { Tag as VanTag } from 'vant'
@@ -36,7 +36,7 @@ const goBack = () => {
   router.push({
     name: 'Detail',
     query: {
-      indexValue,
+      indexValue
     }
   })
 }
@@ -48,14 +48,25 @@ const saveNameCheck = (tagName: string) => {
     navigator.clipboard.writeText(name)
   }
 }
-
 </script>
 
 <template>
   <div class="name-wrapper">
-    <van-nav-bar title="名阁" left-text="返回" left-arrow @click-left="goBack" />
+    <van-nav-bar
+      title="名阁"
+      left-text="返回"
+      left-arrow
+      @click-left="goBack"
+    />
     <div class="container">
-      <van-tag class="tag-item" type="primary" size="large" v-for="(word, index) in dataList" :key="index">{{ word }}</van-tag>
+      <van-tag
+        class="tag-item"
+        type="primary"
+        size="large"
+        v-for="(word, index) in dataList"
+        :key="index"
+        >{{ word }}</van-tag
+      >
     </div>
   </div>
 </template>
@@ -81,5 +92,4 @@ const saveNameCheck = (tagName: string) => {
     }
   }
 }
-
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="book-item-panel">
-    <img class="book-img" :src="bookImg" @click="jumpDetailAction"/>
+    <img class="book-img" :src="bookImg" @click="jumpDetailAction" />
     <div class="info-panel">
       <p class="title">{{ props.book.title }}</p>
       <p>{{ props.book.desc }}</p>
@@ -15,7 +15,6 @@ import { useRouter } from 'vue-router'
 
 import shijingImg from '@/assets/images/shijing.jpg'
 import chuciImg from '@/assets/images/chuci.jpeg'
-
 
 const props = defineProps<{ book: Book }>()
 const router = useRouter()
@@ -39,20 +38,18 @@ const bookImg = computed(() => {
       return shijingImg
   }
 })
-
-
 </script>
 
 <style lang="scss" scoped>
-  .book-item-panel {
-    height: 540px;
-    width: 45vw;
-    margin: 10px;
-    cursor: pointer;
+.book-item-panel {
+  height: 540px;
+  width: 45vw;
+  margin: 10px;
+  cursor: pointer;
 
-    .book-img {
-      height: 80%;
-      width: 40vw;
-    }
+  .book-img {
+    height: 80%;
+    width: 40vw;
   }
+}
 </style>

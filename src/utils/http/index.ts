@@ -1,7 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosError } from 'axios'
 import type { CustomResponseType } from '#/axios'
 
-
 const service = axios.create({
   baseURL: '/api',
   timeout: 30 * 1000,
@@ -11,18 +10,18 @@ const service = axios.create({
 
 // 请求拦截器
 service.interceptors.request.use(
-  (config) => {
+  config => {
     // 可以处理token等
     return config
   },
-  (err) => {
+  err => {
     return Promise.reject(err)
   }
 )
 
 // 响应拦截器
 service.interceptors.response.use(
-  (response) => {
+  response => {
     const { status } = response
     if (status < 200 || status >= 300) {
       // 统一处理http错误，或者处理后抛到业务代码 TODO
@@ -30,7 +29,7 @@ service.interceptors.response.use(
 
     return response
   },
-  (err) => {
+  err => {
     const { status } = err.response
 
     // 根据返回的http状态码做不同的处理，比如错误提示等 TODO
@@ -60,7 +59,7 @@ const request = <T>(
   return new Promise((resolve, reject) => {
     service
       .request<CustomResponseType<T>>(config)
-      .then((res) => {
+      .then(res => {
         resolve(res.data)
       })
       .catch((err: Error | AxiosError) => {

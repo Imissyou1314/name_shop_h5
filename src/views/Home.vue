@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue'
 import { getAllBook } from 'api/book'
 import BookItem from '@/components/BookItem.vue'
 import { Field as VanField, CellGroup as VanCellGroup } from 'vant'
-import useBookStore  from '@/store/modules/book'
+import useBookStore from '@/store/modules/book'
 
 const bookList = ref()
 const nameTag = ref('')
@@ -34,12 +34,23 @@ const saveNameTag = () => {
 </script>
 <template>
   <div class="home-wrapper">
-    <van-nav-bar title="名阁"/>
-    <van-cell-group inset style="margin: 10px;">
-      <van-field v-model="nameTag" label="姓:" placeholder="请输入性什么" autosize input-align="right" @blur="saveNameTag"/>
+    <van-nav-bar title="名阁" />
+    <van-cell-group inset style="margin: 10px">
+      <van-field
+        v-model="nameTag"
+        label="姓:"
+        placeholder="请输入性什么"
+        autosize
+        input-align="right"
+        @blur="saveNameTag"
+      />
     </van-cell-group>
     <div class="container">
-      <book-item v-for="(book, index) in bookList" :key="index" :book="book"></book-item>
+      <book-item
+        v-for="(book, index) in bookList"
+        :key="index"
+        :book="book"
+      ></book-item>
     </div>
   </div>
 </template>
@@ -50,7 +61,6 @@ const saveNameTag = () => {
   width: 100%;
   background-color: #c8c9cc;
   color: #333;
-
 
   .container {
     display: flex;

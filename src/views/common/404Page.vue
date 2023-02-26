@@ -1,12 +1,11 @@
 <template>
-        <p class="txt">404</p>
+  <p class="txt">404</p>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss">
-        .txt {
-                color: #fff;
-        }
+.txt {
+  color: #fff;
+}
 </style>

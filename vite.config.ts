@@ -10,15 +10,15 @@ export default defineConfig({
   plugins: [
     vue(),
     Components({
-      resolvers: [VantResolver()],
-    }),
+      resolvers: [VantResolver()]
+    })
   ],
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
       '#': resolve(__dirname, './src/types'),
       utils: resolve(__dirname, './src/utils'),
-      api: resolve(__dirname, './src/api'),
+      api: resolve(__dirname, './src/api')
     }
   },
   css: {
@@ -55,8 +55,8 @@ export default defineConfig({
       '/api': {
         target: 'http://localhost:8080/v1',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        rewrite: path => path.replace(/^\/api/, '')
       }
     }
-  },
+  }
 })

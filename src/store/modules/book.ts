@@ -2,8 +2,8 @@ import { defineStore } from 'pinia'
 import { Book } from '#/store'
 
 interface State {
-  nameTag: string,
-  book: Book,
+  nameTag: string
+  book: Book
 }
 
 const useBookStore = defineStore('bookStore', {
@@ -25,8 +25,7 @@ const useBookStore = defineStore('bookStore', {
     },
     setNameTag(nameTag: string) {
       this.nameTag = nameTag
-    },
-
+    }
   }
 })
 

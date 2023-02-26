@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue'
 import { getAllEntity } from 'api/entity'
 import { useRoute, useRouter } from 'vue-router'
 import { EntityResList, Entity } from '#/store'
-import { Col as VanCol, Row as VanRow, Sticky as VanSticky , Button as VanButton } from 'vant'
+import {
+  Col as VanCol,
+  Row as VanRow,
+  Sticky as VanSticky,
+  Button as VanButton
+} from 'vant'
 
 let entityList = <EntityResList>{}
 let fileName = 'cifu'
@@ -15,7 +20,7 @@ let activeEntity = ref<Entity>({
   author: '',
   dynasty: '',
   title: '',
-  book: '',
+  book: ''
 })
 const route = useRoute()
 const router = useRouter()
@@ -51,7 +56,7 @@ const jumpNameFact = () => {
     name: 'NameKeys',
     params: {
       fileName: fileName,
-      indexValue: indexValue.value,
+      indexValue: indexValue.value
     }
   })
 }
@@ -61,7 +66,7 @@ const jumpWordsAction = () => {
     name: 'Words',
     params: {
       fileName: fileName,
-      indexValue: indexValue.value,
+      indexValue: indexValue.value
     }
   })
 }
@@ -77,7 +82,7 @@ const preAction = () => {
 
 const nextAction = () => {
   if (indexValue.value === totalSize.value - 1) {
-    return 
+    return
   } else {
     indexValue.value = indexValue.value + 1
     refreshEntity()
@@ -91,7 +96,14 @@ const refreshEntity = () => {
 
 <template>
   <div class="detail-wrapper">
-    <van-nav-bar title="名阁" left-text="返回" left-arrow @click-left="goBack" right-text="生成" @click-right="jumpNameFact"/>
+    <van-nav-bar
+      title="名阁"
+      left-text="返回"
+      left-arrow
+      @click-left="goBack"
+      right-text="生成"
+      @click-right="jumpNameFact"
+    />
     <div class="container">
       <h1 class="title">{{ activeEntity?.title }}</h1>
       <p class="tag">{{ activeEntity?.dynasty }}.{{ activeEntity?.author }}</p>
@@ -100,14 +112,32 @@ const refreshEntity = () => {
     <van-sticky :offset-bottom="50" position="bottom" style="height: 0">
       <van-row justify="center">
         <van-col :span="6">
-          <van-button type="primary" :disabled="indexValue === 0" size="large" @click="preAction">前一篇文章</van-button>
-        </van-col>  
+          <van-button
+            type="primary"
+            :disabled="indexValue === 0"
+            size="large"
+            @click="preAction"
+            >前一篇文章</van-button
+          >
+        </van-col>
         <van-col :span="4" :offset="2">
-          <van-button type="primary" :disabled="indexValue === 0" size="large" @click="jumpWordsAction">分解</van-button>
-        </van-col>  
+          <van-button
+            type="primary"
+            :disabled="indexValue === 0"
+            size="large"
+            @click="jumpWordsAction"
+            >分解</van-button
+          >
+        </van-col>
         <van-col :span="6" :offset="2">
-          <van-button type="primary" :disabled="indexValue === totalSize - 1" size="large" @click="nextAction">后一篇文章</van-button>
-        </van-col>  
+          <van-button
+            type="primary"
+            :disabled="indexValue === totalSize - 1"
+            size="large"
+            @click="nextAction"
+            >后一篇文章</van-button
+          >
+        </van-col>
       </van-row>
     </van-sticky>
   </div>
