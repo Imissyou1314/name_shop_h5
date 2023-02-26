@@ -9,6 +9,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: ["./tsconfig.json"],
+    parser: '@babel/eslint-parser',
   },
   plugins: ['vue'],
   rules: {
